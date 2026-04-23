@@ -143,8 +143,137 @@ Si tu as :
 * 🚩 Écouter les signaux
 * 🧠 Ne pas décider sous émotion
 
+
 ---
 
+# 🎯 TABLEAU DE DÉCISION OBJECTIF (SCORE /100)
+
+👉 Principe : tu notes chaque critère → tu fais le total → tu décides
+
+---
+
+## 📊 CRITÈRES + BARÈME
+
+| #  | Critère            | Question clé                      | Score (0–10) |
+| -- | ------------------ | --------------------------------- | ------------ |
+| 1  | 🧠 Clarté          | Est-ce que je comprends tout ?    | /10          |
+| 2  | ⏳ Temps            | Ai-je pris assez de recul ?       | /10          |
+| 3  | 🔍 Vérification    | Ai-je des preuves concrètes ?     | /10          |
+| 4  | 📄 Légal           | Tout est-il écrit et sécurisé ?   | /10          |
+| 5  | 💰 Risque          | Puis-je supporter la perte ?      | /10          |
+| 6  | 🔁 Réciprocité     | Est-ce équilibré ?                | /10          |
+| 7  | 🚩 Signaux faibles | Y a-t-il des doutes ? (inversé*)  | /10          |
+| 8  | 🧍 Autonomie       | Est-ce que je reste indépendant ? | /10          |
+| 9  | 🎯 Alignement      | Cohérent avec ma vision ?         | /10          |
+| 10 | 🔮 Pire scénario   | Suis-je protégé si ça échoue ?    | /10          |
+
+👉 **Total = /100**
+
+---
+
+## ⚠️ IMPORTANT (critère 7 inversé 🚩)
+
+* Beaucoup de signaux négatifs → **0/10**
+* Aucun doute → **10/10**
+
+---
+
+# 🚦 INTERPRÉTATION DU SCORE
+
+| Score       | Décision                      |
+| ----------- | ----------------------------- |
+| 🔴 0 – 49   | ❌ DANGER → Refuser            |
+| 🟠 50 – 69  | ⚠️ RISQUÉ → Corriger avant    |
+| 🟡 70 – 84  | 👍 ACCEPTABLE → Avec prudence |
+| 🟢 85 – 100 | ✅ SOLIDE → Tu peux avancer    |
+
+---
+
+# 🧪 EXEMPLE CONCRET
+
+👉 Cas : investir dans un terrain
+
+* Clarté : 6
+* Temps : 5
+* Vérification : 4
+* Légal : 3
+* Risque : 7
+* Réciprocité : 8
+* Signaux : 5
+* Autonomie : 9
+* Alignement : 8
+* Pire scénario : 4
+
+👉 **Total = 59/100**
+
+➡️ Verdict : ⚠️ **RISQUÉ → ne pas acheter maintenant**
+
+---
+
+# 🔥 RÈGLES AVANCÉES (TRÈS IMPORTANT)
+
+## 🚫 Règle éliminatoire
+
+Si un seul critère est ≤ 3 :
+👉 **STOP même si total élevé**
+
+---
+
+## ⚖️ Règle des 3 piliers critiques
+
+Ces 3 critères doivent être ≥ 7 :
+
+* 🔍 Vérification
+* 📄 Légal
+* 🚩 Signaux
+
+👉 Sinon = danger caché
+
+---
+
+## 💡 Règle émotion
+
+Si tu es :
+
+* amoureux 😍
+* pressé 😰
+  👉 retire **–10 points automatiques**
+
+---
+
+# 🧠 FORMULE SIMPLE
+
+👉 **Bonne décision = Clarté + Temps + Preuves + Protection**
+
+---
+
+# 📱 VERSION ULTRA RAPIDE (WhatsApp)
+
+Note /10 :
+
+* Clarté
+* Temps
+* Preuves
+* Légal
+* Risque
+* Équilibre
+* Doutes
+* Autonomie
+* Vision
+* Protection
+
+👉 Total /100
+👉 <70 = NON
+
+---
+
+# 💬 SAGESSE FINALE
+
+* *“Ce qui est rapide est souvent risqué”*
+* *“Ce qui n’est pas sécurisé est déjà perdu”*
+* *“Une bonne décision protège ton futur”*
+
+---
 
 
 # 🚨 TOP 20 DES ERREURS LES PLUS DANGEREUSES (Afrique : immobilier, famille, couple)
