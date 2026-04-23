@@ -1,1 +1,687 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>REX Décision Pro | Portail de Prise de Décision + Top 20 REX</title>
+    <!-- Bootstrap 5 + Icons + Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-dark: #0B2B4F;
+            --primary-teal: #1E8F8C;
+            --accent-gold: #E6B91E;
+            --light-bg: #F8FAFE;
+            --card-shadow: 0 12px 28px rgba(0,0,0,0.05);
+            --border-radius-lg: 1rem;
+        }
+        body {
+            background: var(--light-bg);
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, sans-serif;
+            color: #1e2a3e;
+            scroll-behavior: smooth;
+        }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap');
+        
+        .navbar-brand-custom {
+            font-weight: 700;
+            font-size: 1.6rem;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-teal) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .hero-section {
+            background: linear-gradient(105deg, #FFFFFF 0%, #F0F5FA 100%);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .badge-rex {
+            background-color: var(--primary-teal);
+            color: white;
+            padding: 0.35rem 0.85rem;
+            border-radius: 40px;
+            font-weight: 500;
+        }
+        .nav-tabs-custom {
+            border-bottom: 2px solid #e2e8f0;
+            gap: 0.25rem;
+            flex-wrap: wrap;
+        }
+        .nav-tabs-custom .nav-link {
+            font-weight: 600;
+            color: #2c3e50;
+            border: none;
+            padding: 0.7rem 1.1rem;
+            border-radius: 50px;
+            transition: all 0.2s ease;
+            background: transparent;
+            margin-bottom: 0.5rem;
+        }
+        .nav-tabs-custom .nav-link i {
+            margin-right: 8px;
+            font-size: 1rem;
+        }
+        .nav-tabs-custom .nav-link:hover {
+            background: rgba(30, 143, 140, 0.08);
+            color: var(--primary-teal);
+        }
+        .nav-tabs-custom .nav-link.active {
+            background: var(--primary-teal);
+            color: white;
+            box-shadow: 0 5px 12px rgba(30,143,140,0.25);
+        }
+        .tab-pane {
+            animation: fadeSlide 0.25s ease-out;
+        }
+        @keyframes fadeSlide {
+            from { opacity: 0; transform: translateY(8px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+        .score-card {
+            background: white;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--card-shadow);
+            border: 1px solid rgba(0,0,0,0.03);
+            transition: all 0.2s;
+        }
+        .decision-badge {
+            font-size: 1.3rem;
+            font-weight: 700;
+            padding: 0.6rem 1.2rem;
+            border-radius: 80px;
+        }
+        .pill-critical {
+            background: #FFF3E0;
+            border-left: 5px solid #E6B91E;
+        }
+        .score-input-custom {
+            max-width: 100px;
+            text-align: center;
+            font-weight: 600;
+        }
+        .rule-gold {
+            background: linear-gradient(115deg, #FFF9E8 0%, #FFF3E0 100%);
+            border-left: 6px solid var(--accent-gold);
+            border-radius: 20px;
+        }
+        .footer-sage {
+            background: #0B2B4F;
+            color: #CDE5F0;
+        }
+        .icon-bg-circle {
+            background: rgba(30,143,140,0.12);
+            width: 42px;
+            height: 42px;
+            border-radius: 42px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        h5 i {
+            color: var(--primary-teal);
+        }
+        .critical-warning {
+            background: #FFECEC;
+            border-left: 4px solid #DC2626;
+        }
+        .rex-accordion-button:not(.collapsed) {
+            background-color: rgba(30,143,140,0.08);
+            color: var(--primary-dark);
+        }
+        .rex-card {
+            transition: transform 0.1s ease;
+        }
+        @media (max-width: 768px) {
+            .nav-tabs-custom .nav-link {
+                padding: 0.45rem 0.9rem;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
 
+<div class="hero-section py-4">
+    <div class="container">
+        <div class="d-flex flex-wrap justify-content-between align-items-center">
+            <div>
+                <h1 class="display-6 fw-bold"><i class="fas fa-brain text-primary-teal me-2" style="color:#1E8F8C;"></i> <span class="navbar-brand-custom">REX Decision</span> <span class="badge-rex ms-2">Méthodologie Pro + Top 20 REX</span></h1>
+                <p class="text-muted mt-2">Guide systémique de décision · 12 piliers · Scoring avancé · Retours d'expérience (REX) Afrique</p>
+            </div>
+            <div class="mt-2 mt-md-0">
+                <span class="badge bg-light text-dark p-2"><i class="fas fa-shield-alt text-success"></i> « Pas clair + pas écrit + pression = danger »</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container my-4">
+    <div class="row g-4">
+        <!-- Left / Main content: Tabs (12 décision + 1 Top 20 REX) -->
+        <div class="col-lg-8">
+            <div class="score-card p-3 p-lg-4">
+                <ul class="nav nav-tabs nav-tabs-custom mb-4" id="decisionTabs" role="tablist">
+                    <!-- Les onglets seront générés dynamiquement (12 critères + 1 REX) -->
+                </ul>
+                <div class="tab-content" id="decisionTabContent">
+                    <!-- Les panes seront injectées ici -->
+                </div>
+                <div class="alert alert-info mt-3 mb-0">
+                    <i class="fas fa-lightbulb"></i> <strong>Conseil d'utilisation :</strong> Pour chaque critère, évaluez de 0 (très insatisfaisant) à 10 (parfait). Le score total et les règles éliminatoires vous guideront.
+                </div>
+            </div>
+          
+			
+			            <!-- Section exemples REX & erreurs -->
+            <div class="score-card p-4 mt-4">
+                <h5 class="fw-bold"><i class="fas fa-chart-line me-2" style="color:#1E8F8C;"></i>🔁 REX Terrain : 20 situations réelles</h5>
+                <p class="text-secondary">Les erreurs les plus coûteuses (Immobilier, Famille, Couple) — inspirées du vécu.</p>
+          
+			<div class="row g-3">
+    <!-- Catégorie 1 : Immobilier -->
+    <div class="col-md-6 col-lg-3">
+        <div class="border-start border-4 border-primary ps-3 h-100">
+            <h6 class="fw-bold"><i class="fas fa-home text-danger"></i> Immobilier ⚠️</h6>
+            <ul class="small list-unstyled">
+                <li><i class="fas fa-times-circle text-danger me-1"></i> Acheter sans titre foncier</li>
+                <li><i class="fas fa-times-circle text-danger me-1"></i> Construire sur terrain familial flou</li>
+                <li><i class="fas fa-times-circle text-danger me-1"></i> Payer 100% avant travaux</li>
+                <li><i class="fas fa-check-circle text-success me-1"></i> <strong>Solution :</strong> Titre + notaire + paiement par étapes</li>
+            </ul>
+        </div>
+    </div>
+    <!-- Catégorie 2 : Famille & Couple -->
+    <div class="col-md-6 col-lg-3">
+        <div class="border-start border-4 border-warning ps-3 h-100">
+            <h6 class="fw-bold"><i class="fas fa-users"></i> Famille & Couple ❤️</h6>
+            <ul class="small list-unstyled">
+                <li><i class="fas fa-heart-broken"></i> Sacrifice unilatéral (études sans engagement)</li>
+                <li><i class="fas fa-hand-holding-usd"></i> Être le "banquier familial" sans limites</li>
+                <li><i class="fas fa-file-signature"></i> Maison au nom d’un seul → expulsion</li>
+                <li><i class="fas fa-gavel"></i> <strong>Clé :</strong> contrat, équilibre, écrit même en famille</li>
+            </ul>
+        </div>
+    </div>
+    <!-- Catégorie 3 : Business & Associés (nouvelle) -->
+    <div class="col-md-6 col-lg-3">
+        <div class="border-start border-4 border-success ps-3 h-100">
+            <h6 class="fw-bold"><i class="fas fa-chart-line text-success"></i> Business & Associés 📊</h6>
+            <ul class="small list-unstyled">
+                <li><i class="fas fa-user-friends text-danger"></i> S'associer sans pacte écrit</li>
+                <li><i class="fas fa-dollar-sign"></i> Mélanger comptes personnels / pro</li>
+                <li><i class="fas fa-handshake"></i> Confiance aveugle sur promesses orales</li>
+                <li><i class="fas fa-check-circle text-success"></i> <strong>Règle :</strong> pacte d'associés + rôles clairs + séparation financière</li>
+            </ul>
+        </div>
+    </div>
+    <!-- Catégorie 4 : Crédits & Garanties (nouvelle) -->
+    <div class="col-md-6 col-lg-3">
+        <div class="border-start border-4 border-info ps-3 h-100">
+            <h6 class="fw-bold"><i class="fas fa-file-invoice-dollar text-info"></i> Crédits & Garanties 💳</h6>
+            <ul class="small list-unstyled">
+                <li><i class="fas fa-signature"></i> Se porter garant sans évaluation</li>
+                <li><i class="fas fa-hand-holding-heart"></i> Prêter sans reconnaissance de dette</li>
+                <li><i class="fas fa-chart-simple"></i> Souscrire un crédit sans fonds de sécurité</li>
+                <li><i class="fas fa-check-circle text-success"></i> <strong>Clé :</strong> reconnaissance de dette, ne garantir que ce qu'on peut perdre</li>
+            </ul>
+        </div>
+    </div>
+</div>
+		  
+		  
+		  
+		  
+                <hr>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                    <div><i class="fas fa-quote-left text-muted"></i> <em>“La confiance n'est pas une stratégie. Ce que tu ne vérifies pas te coûtera cher.”</em></div>
+                    <span class="badge bg-secondary">Top 5 lois survie : écrit, temps, indépendance, limites, protection légale</span>
+                </div>
+				
+				 <div class="row g-3">
+                    <div class="col-md-6">
+                        <div class="border-start border-4 border-primary ps-3">
+                            <h6 class="fw-bold"><i class="fas fa-home text-danger"></i> Erreurs fréquentes</h6>
+                            <ul class="small">
+                                <li>Acheter sans titre foncier → <strong>Vérification notariale</strong></li>
+                                <li>Prêter sans reconnaissance de dette → <strong>toujours un écrit</strong></li>
+                                <li>Sacrifice unilatéral dans le couple → <strong>équilibre + engagement clair</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="border-start border-4 border-warning ps-3">
+                            <h6 class="fw-bold"><i class="fas fa-gavel"></i> 5 lois de survie</h6>
+                            <ol class="small mb-0">
+                                <li>Tout doit être écrit (même en famille)</li>
+                                <li>Le temps révèle la vérité</li>
+                                <li>Ne jamais mélanger émotion et argent</li>
+                                <li>Protection légale avant investissement</li>
+                                <li>Limites claires (amour, famille, business)</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Sidebar droit : Scoring dynamique et décision -->
+        <div class="col-lg-4">
+            <div class="score-card p-4 sticky-lg-top" style="top: 20px;">
+                <h4 class="fw-bold"><i class="fas fa-calculator me-2" style="color:#1E8F8C;"></i> Score final & Décision</h4>
+                <div class="mt-3">
+                    <div class="d-flex justify-content-between">
+                        <span>Total brut (sur 120) :</span>
+                        <span class="fw-bold" id="totalScoreDisplay">0</span>
+                    </div>
+                    <div class="d-flex justify-content-between mt-1">
+                        <span>Score équivalent /100 :</span>
+                        <span class="fw-bold" id="adjustedScoreDisplay">0</span>
+                    </div>
+                    <div class="progress mt-2" style="height: 10px;">
+                        <div id="scoreProgressBar" class="progress-bar" role="progressbar" style="width: 0%; background-color: #1E8F8C;"></div>
+                    </div>
+                    <div class="mt-3 text-center" id="verdictZone">
+                        <span class="decision-badge bg-light text-dark">📊 Calcul en cours</span>
+                    </div>
+                </div>
+                
+                <hr>
+                <div class="form-check form-switch mb-3">
+                    <input class="form-check-input" type="checkbox" id="emotionPenaltyCheckbox">
+                    <label class="form-check-label fw-semibold" for="emotionPenaltyCheckbox">
+                        <i class="fas fa-heart text-danger"></i> État émotionnel fort (amour, peur, pression) → -10 points
+                    </label>
+                    <small class="text-muted d-block">(Règle émotion REX : retirer 10 points si vous êtes sous pression ou amoureux)</small>
+                </div>
+                
+                <div id="eliminationAlert" class="alert alert-danger d-none">
+                    <i class="fas fa-stop-circle"></i> <strong>STOP ÉLIMINATOIRE</strong><br> Un critère ≤ 3 => décision dangereuse, refusez.
+                </div>
+                <div id="criticalPillarAlert" class="alert alert-warning d-none">
+                    <i class="fas fa-exclamation-triangle"></i> <strong>Danger caché</strong><br> Vérification, Légal ou Signaux faibles < 7.
+                </div>
+                
+                <div class="rule-gold p-3 mt-3">
+                    <i class="fas fa-gem"></i> <strong>Règle d’or :</strong> « Pas clair + pas écrit + pression = danger »
+                    <div class="small mt-2"><i class="fas fa-check-circle"></i> Test final : si flou, pression, absence preuve, rien écrit → STOP immédiat.</div>
+                </div>
+                
+                <button class="btn btn-outline-secondary w-100 mt-3" id="resetScoresBtn"><i class="fas fa-undo-alt"></i> Réinitialiser les scores (moyenne 5)</button>
+            </div>
+            
+            <!-- Checklist ultra-rapide -->
+            <div class="score-card p-3 mt-4">
+                <h6><i class="fas fa-clipboard-list"></i> Checklist ultra-rapide (WhatsApp)</h6>
+                <div class="row row-cols-2 g-1 small">
+                    <div class="col">📄 Tout écrire</div>
+                    <div class="col">⏳ Prendre le temps</div>
+                    <div class="col">🔍 Vérifier preuves</div>
+                    <div class="col">💰 Évaluer perte max</div>
+                    <div class="col">⚖️ Chercher équilibre</div>
+                    <div class="col">🚩 Écouter signaux</div>
+                    <div class="col">🧠 Pas sous émotion</div>
+                    <div class="col">📜 Cadre légal</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="footer-sage mt-5 py-4">
+    <div class="container text-center">
+        <p class="mb-0"><i class="fas fa-brain me-1"></i> Sagesse REX : "Une bonne décision protège ton futur" — Ne jamais sacrifier sa sécurité pour une pression extérieure.</p>
+        <small>© Méthode des 12 piliers décisionnels + Top 20 REX terrain · Inspiré des retours d'expérience réels (immobilier, couple, famille).</small>
+    </div>
+</footer>
+
+<script>
+    // 1. Définition des 12 critères pour scoring
+    const criteriaList = [
+        { id: "clarte", name: "🧠 CLARTÉ", icon: "fas fa-eye", desc: "Comprendre exactement la situation, avoir toutes les infos.", questions: "Ai-je toutes les versions ? Qu'est-ce que j'ignore encore ?", tip: "Si ce n’est pas clair → ne décide pas." },
+        { id: "temps", name: "⏳ TEMPS", icon: "fas fa-hourglass-half", desc: "Recul suffisant, éviter l'urgence.", questions: "24-72h de réflexion ? Suis-je sous pression ?", tip: "Toute urgence est suspecte." },
+        { id: "verification", name: "🔍 VÉRIFICATION", icon: "fas fa-search", desc: "Preuves concrètes, vérification tierce.", questions: "Documents, résultats, avis fiable ?", tip: "Fais confiance, mais vérifie toujours." },
+        { id: "legal", name: "⚖️ CADRE LÉGAL", icon: "fas fa-file-signature", desc: "Tout écrit et sécurisé, consultation pro.", questions: "Notaire, contrat, écrit ?", tip: "Sans écrit = zéro sécurité." },
+        { id: "risque", name: "💰 RISQUE FINANCIER", icon: "fas fa-chart-line", desc: "Perte maximale supportable.", questions: "Puis-je survivre à cette perte ?", tip: "N'investis jamais ce que tu ne peux perdre." },
+        { id: "reciprocite", name: "🔁 RÉCIPROCITÉ", icon: "fas fa-handshake", desc: "Équilibre des risques et efforts.", questions: "L'autre prend-il un risque similaire ?", tip: "Relation saine = équilibre." },
+        { id: "signaux", name: "🚩 SIGNAUX FAIBLES", icon: "fas fa-flag", desc: "Incohérences, doutes, red flags.", questions: "Ai-je ignoré des alertes ?", tip: "Un petit doute = alerte sérieuse (inversé : notez 10 si aucun doute)" },
+        { id: "autonomie", name: "🧍 AUTONOMIE", icon: "fas fa-user-check", desc: "Garder indépendance financière et mentale.", questions: "Cette décision me rend dépendant ?", tip: "Toujours rester libre." },
+        { id: "alignement", name: "🎯 ALIGNEMENT", icon: "fas fa-bullseye", desc: "Cohérence avec vos objectifs et valeurs.", questions: "Respecte mes valeurs ? Vision long terme ?", tip: "Ne sacrifie pas ton futur." },
+        { id: "pire", name: "🔮 PIRE SCÉNARIO", icon: "fas fa-skull-crossbones", desc: "Protection si tout échoue.", questions: "Suis-je protégé en cas d'échec ?", tip: "Prévoir le pire = intelligence." },
+        { id: "avis_externe", name: "🧑‍⚖️ AVIS EXTERNE", icon: "fas fa-users", desc: "Conseil neutre et expérimenté.", questions: "Avis d'une personne neutre ?", tip: "Un regard extérieur évite l'aveuglement." },
+        { id: "emotion_raison", name: "❤️ ÉMOTION vs RAISON", icon: "fas fa-heartbeat", desc: "Décider avec calme, sans passion ou peur.", questions: "Suis-je guidé par l'émotion ? Si j'étais calme, même décision ?", tip: "Ne décide jamais sous émotion forte." }
+    ];
+
+    // Data pour Top 20 REX détaillés (d'après le fichier Top20REXDecisions.md)
+    const rexSituations = [
+        { num:1, title:"Amour + investissement aveugle", cause:"Confusion amour/argent, absence preuves loyauté, émotion rapide.", methode:"Séparer amour ≠ argent, tester sur 6-12 mois, contrat légal." },
+        { num:2, title:"Sacrifice unilatéral", cause:"Déséquilibre, amour conditionné par évolution sociale, pas d'engagement.", methode:"Investir dans quelqu'un qui investit en toi, formaliser (mariage), ne pas construire seul." },
+        { num:3, title:"Maison au nom d’un seul partenaire", cause:"Ignorance juridique, confiance excessive, absence anticipation.", methode:"Co-propriété écrite, notaire, prévoir séparation." },
+        { num:4, title:"Prêt d’argent sans preuve", cause:"Peur de 'gâter l'amitié', cadre informel.", methode:"Reconnaissance de dette, prêter ce que tu peux perdre, règles claires." },
+        { num:5, title:"Business avec famille sans règles", cause:"Manque structure, confusion rôles.", methode:"Accord écrit (parts, rôles), séparer famille et business." },
+        { num:6, title:"Mariage précipité", cause:"Pression sociale, idéalisation.", methode:"Observer contextes, vérifier valeurs, prendre le temps." },
+        { num:7, title:"Dépendance financière dans le couple", cause:"Manque autonomie, confiance excessive.", methode:"Revenu personnel, épargne individuelle, ne pas être prisonnier économique." },
+        { num:8, title:"Confiance aveugle dans les promesses", cause:"Naïveté, absence vérification.", methode:"Preuves documents, avis externe, ne pas investir sous pression." },
+        { num:9, title:"Héritage mal préparé", cause:"Absence testament, biens non clarifiés.", methode:"Testament clair, informer famille, formaliser juridiquement." },
+        { num:10, title:"Choix basé sur le paraître", cause:"Priorités superficielles.", methode:"Chercher valeurs profondes, observer comportements sur durée." },
+        { num:11, title:"Caution mal réfléchie", cause:"Sous-estimation risque, pression sociale.", methode:"Ne pas se porter garant sans capacité réelle, vérifier discipline, dire non." },
+        { num:12, title:"Hébergement temporaire qui dure", cause:"Absence limites claires, difficulté à dire non.", methode:"Fixer date sortie, règles participation, éviter flou." },
+        { num:13, title:"Achat impulsif sous pression", cause:"FOMO, absence vérification.", methode:"Vérifier documents, prendre 48-72h, consulter expert." },
+        { num:14, title:"Signature sans lecture", cause:"Négligence, confiance excessive.", methode:"Lire chaque clause, faire relire par compétent." },
+        { num:15, title:"Mauvais choix d’associé", cause:"Mauvaise évaluation, vision non commune.", methode:"Tester collaboration, clarifier rôles, pacte d'associés." },
+        { num:16, title:"Aide financière répétée sans changement", cause:"Création dépendance, manque responsabilisation.", methode:"Aider avec conditions, limiter aides, favoriser autonomie." },
+        { num:17, title:"Mélange travail / relation amoureuse", cause:"Absence séparation rôles, décisions émotionnelles.", methode:"Éviter si possible, formaliser contrat, prévoir rupture." },
+        { num:18, title:"Ignorer les signaux faibles", cause:"Déni, espoir de changement.", methode:"Prendre alertes au sérieux, agir tôt, ne pas justifier l'inacceptable." },
+        { num:19, title:"Absence d’épargne de sécurité", cause:"Mauvaise gestion, vision court terme.", methode:"Construire épargne 3-6 mois, automatiser, prioriser sécurité." },
+        { num:20, title:"Donner son pouvoir de décision", cause:"Manque confiance, peur de se tromper.", methode:"Prendre décisions progressivement, assumer erreurs, esprit critique." }
+    ];
+
+    let scores = {};
+    let emotionPenaltyActive = false;
+
+    // Générer les 12 onglets de critères + 13ème onglet REX
+    // Générer les 12 onglets de critères + 13ème onglet REX (version enrichie avec 3 astuces par onglet)
+function buildAllTabs() {
+    const tabContainer = document.querySelector('#decisionTabs');
+    const contentContainer = document.querySelector('#decisionTabContent');
+    tabContainer.innerHTML = '';
+    contentContainer.innerHTML = '';
+
+    // 1. Création des 12 onglets critères avec explications détaillées
+    criteriaList.forEach((criterion, idx) => {
+        // Dictionnaire d'astuces personnalisées pour chaque critère (3 points)
+        const tipsMap = {
+            clarte: [
+                "🔍 Posez-vous la question : quelles informations me manquent ?",
+                "📞 Parlez à au moins deux sources indépendantes avant de décider.",
+                "✍️ Reformulez la situation avec vos propres mots pour vérifier votre compréhension."
+            ],
+            temps: [
+                "⏳ Fixez-vous un délai minimum de 48 à 72 heures de réflexion – même si tout semble urgent.",
+                "📅 Notez dans un calendrier la date de votre décision pour éviter l'impulsivité.",
+                "🚫 Méfiez-vous des offres « limitées dans le temps » : c’est souvent un piège."
+            ],
+            verification: [
+                "📄 Demandez des documents officiels (factures, titres, contrats) – jamais de simples photos.",
+                "👥 Consultez un tiers de confiance qui n’a aucun intérêt dans l’affaire.",
+                "🔎 Faites une recherche en ligne ou auprès d’une association professionnelle."
+            ],
+            legal: [
+                "⚖️ Faites toujours valider par un notaire, avocat ou juriste – même pour un accord familial.",
+                "📝 Rédigez un écrit signé par toutes les parties, avec date et objet précis.",
+                "⚠️ Sans acte authentique, vous n’avez aucune protection en cas de litige."
+            ],
+            risque: [
+                "💸 Calculez la perte maximale possible (pas seulement le montant investi).",
+                "🏦 Ne mettez jamais plus de 10 % de votre épargne sur une opération risquée.",
+                "❓ Demandez-vous : « Si je perds tout, ma vie quotidienne sera-t-elle impactée ? »"
+            ],
+            reciprocite: [
+                "🤝 L’autre partie s’engage-t-elle avec des garanties équivalentes (argent, temps, biens) ?",
+                "📊 Faites une balance des avantages et des sacrifices de chaque côté.",
+                "🚩 Si vous donnez tout et l’autre rien → déséquilibre toxique."
+            ],
+            signaux: [
+                "🚩 Listez tous les petits doutes que vous avez eu depuis le début.",
+                "🔁 Vérifiez les incohérences entre les paroles et les actes passés.",
+                "📉 Plus vous accumulez de « signaux faibles », plus le risque est élevé – notez bas."
+            ],
+            autonomie: [
+                "🔑 Gardez toujours un revenu ou une épargne qui ne dépend de personne.",
+                "🏠 Ne signez pas un bail ou un crédit dont vous ne pourrez sortir seul.",
+                "💡 Une bonne décision augmente votre liberté, elle ne la réduit pas."
+            ],
+            alignement: [
+                "🎯 Relisez vos objectifs de vie sur 5 ans : cette décision vous en rapproche ?",
+                "💭 Écoutez votre intuition : si vous sentez un malaise, creusez.",
+                "📋 Créez une liste de vos valeurs (famille, intégrité, sécurité) et vérifiez les compatibilités."
+            ],
+            pire: [
+                "💣 Imaginez le scénario catastrophe : que se passe-t-il concrètement ?",
+                "🛡️ Avez-vous une assurance, un contrat de rachat ou un plan B ?",
+                "🧠 Préparer le pire n’est pas pessimiste, c’est stratégique."
+            ],
+            avis_externe: [
+                "👥 Parlez à une personne expérimentée mais qui n’a pas d’intérêt personnel.",
+                "📞 Demandez un second avis professionnel (coach, expert-comptable, avocat).",
+                "❌ Évitez les avis uniquement favorables – cherchez quelqu’un qui ose critiquer."
+            ],
+            emotion_raison: [
+                "😡 Attendez 24h si vous êtes en colère, amoureux, ou sous pression.",
+                "📝 Écrivez la décision sur papier, attendez une nuit, puis relisez à froid.",
+                "⚖️ Si la décision vous paraît différente en imaginant qu’un ami la prend → suivez la raison."
+            ]
+        };
+
+        const li = document.createElement('li');
+        li.classList.add('nav-item');
+        li.setAttribute('role', 'presentation');
+        const btn = document.createElement('button');
+        btn.className = `nav-link ${idx === 0 ? 'active' : ''}`;
+        btn.setAttribute('data-bs-toggle', 'tab');
+        btn.setAttribute('data-bs-target', `#tab-${criterion.id}`);
+        btn.setAttribute('type', 'button');
+        btn.setAttribute('role', 'tab');
+        btn.innerHTML = `<i class="${criterion.icon}"></i> ${criterion.name.split(' ').slice(0,2).join(' ')}`;
+        li.appendChild(btn);
+        tabContainer.appendChild(li);
+        
+        const pane = document.createElement('div');
+        pane.className = `tab-pane fade ${idx === 0 ? 'show active' : ''}`;
+        pane.id = `tab-${criterion.id}`;
+        pane.setAttribute('role', 'tabpanel');
+        
+        // Construction du contenu enrichi avec 3 astuces
+        const astucesHtml = tipsMap[criterion.id] 
+            ? `<div class="mt-3 p-3 bg-light rounded-3">
+                <i class="fas fa-lightbulb text-warning"></i> <strong>3 astuces pour bien évaluer ce critère :</strong>
+                <ul class="mb-0 mt-2">
+                    ${tipsMap[criterion.id].map(t => `<li class="small">${t}</li>`).join('')}
+                </ul>
+               </div>`
+            : '';
+        
+        pane.innerHTML = `
+            <div class="p-2">
+                <h5 class="fw-bold"><i class="${criterion.icon} me-2" style="color:#1E8F8C;"></i> ${criterion.name}</h5>
+                <p class="lead fs-6">${criterion.desc}</p>
+                <div class="bg-light p-3 rounded-3 mb-3">
+                    <i class="fas fa-question-circle"></i> <strong>Questions clés :</strong> ${criterion.questions}
+                </div>
+                <div class="alert alert-secondary py-2"><i class="fas fa-lightbulb"></i> 💡 <strong>Règle :</strong> ${criterion.tip}</div>
+                ${astucesHtml}
+                <label class="form-label fw-semibold mt-3">Score (0 = très mauvais, 10 = parfait) :</label>
+                <div class="d-flex align-items-center gap-3">
+                    <input type="range" min="0" max="10" step="1" class="form-range w-50" id="slider-${criterion.id}" value="5">
+                    <input type="number" min="0" max="10" step="1" class="form-control score-input-custom" id="score-${criterion.id}" value="5" style="width: 80px;">
+                </div>
+                ${criterion.id === 'signaux' ? '<div class="form-text text-muted mt-2">🔔 Plus il y a de doutes/incohérences, plus le score doit être bas (0-3 = alarme).</div>' : ''}
+            </div>
+        `;
+        contentContainer.appendChild(pane);
+        scores[criterion.id] = 5;
+    });
+
+    // 2. Ajout de l'onglet TOP 20 REX DETAILLES (13ème) - identique à avant
+    const rexLi = document.createElement('li');
+    rexLi.classList.add('nav-item');
+    rexLi.setAttribute('role', 'presentation');
+    const rexBtn = document.createElement('button');
+    rexBtn.className = 'nav-link';
+    rexBtn.setAttribute('data-bs-toggle', 'tab');
+    rexBtn.setAttribute('data-bs-target', '#tab-rex20');
+    rexBtn.setAttribute('type', 'button');
+    rexBtn.setAttribute('role', 'tab');
+    rexBtn.innerHTML = '<i class="fas fa-list-ul"></i> 📋 TOP 20 REX DÉTAILLÉS';
+    rexLi.appendChild(rexBtn);
+    tabContainer.appendChild(rexLi);
+
+    const rexPane = document.createElement('div');
+    rexPane.className = 'tab-pane fade';
+    rexPane.id = 'tab-rex20';
+    rexPane.setAttribute('role', 'tabpanel');
+    rexPane.innerHTML = `
+        <div class="p-2">
+            <h4 class="fw-bold mb-3"><i class="fas fa-chalkboard-user me-2" style="color:#E6B91E;"></i> TOP 20 DES SITUATIONS RÉELLES (RETOURS D'EXPÉRIENCE)</h4>
+            <p class="text-secondary">Basé sur le vécu terrain en Afrique (immobilier, famille, couple). Chaque situation décrit la <strong>cause profonde</strong> et la <strong>méthode simple pour éviter le piège</strong>.</p>
+            <div class="accordion" id="rexAccordion">
+                ${rexSituations.map((rex, idx) => `
+                    <div class="accordion-item border-0 mb-2 shadow-sm rounded">
+                        <h2 class="accordion-header" id="heading${rex.num}">
+                            <button class="accordion-button ${idx !== 0 ? 'collapsed' : ''} rex-accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${rex.num}" aria-expanded="${idx === 0 ? 'true' : 'false'}" aria-controls="collapse${rex.num}">
+                                <span class="fw-bold me-2">${rex.num}.</span> ${rex.title}
+                            </button>
+                        </h2>
+                        <div id="collapse${rex.num}" class="accordion-collapse collapse ${idx === 0 ? 'show' : ''}" aria-labelledby="heading${rex.num}" data-bs-parent="#rexAccordion">
+                            <div class="accordion-body bg-light">
+                                <div class="mb-2"><i class="fas fa-skull-crosswalk text-danger me-1"></i> <strong>Cause profonde :</strong> ${rex.cause}</div>
+                                <div><i class="fas fa-shield-heart text-success me-1"></i> <strong>Méthode pour éviter :</strong> ${rex.methode}</div>
+                            </div>
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
+            <hr class="my-4">
+            <div class="alert alert-warning">
+                <i class="fas fa-chart-simple"></i> <strong>Synthèse des 5 lois de survie :</strong> 📄 tout écrit · ⏳ temps révèle · 💰 émotion ≠ argent · ⚖️ protection légale · 🚧 limites claires.
+            </div>
+        </div>
+    `;
+    contentContainer.appendChild(rexPane);
+
+    // Attacher événements scores
+    attachScoreEvents();
+    // Onglet actif par défaut
+    const firstTab = tabContainer.querySelector('.nav-link');
+    if (firstTab && !firstTab.classList.contains('active')) firstTab.classList.add('active');
+    const firstPane = contentContainer.querySelector('.tab-pane');
+    if (firstPane && !firstPane.classList.contains('show')) firstPane.classList.add('show', 'active');
+}
+
+    function attachScoreEvents() {
+        criteriaList.forEach(crit => {
+            const slider = document.getElementById(`slider-${crit.id}`);
+            const numberInput = document.getElementById(`score-${crit.id}`);
+            if (slider && numberInput) {
+                const updateValue = (val) => {
+                    const num = parseInt(val, 10);
+                    if (!isNaN(num) && num >= 0 && num <= 10) {
+                        slider.value = num;
+                        numberInput.value = num;
+                        scores[crit.id] = num;
+                        updateGlobalScore();
+                    }
+                };
+                slider.addEventListener('input', (e) => updateValue(e.target.value));
+                numberInput.addEventListener('input', (e) => updateValue(e.target.value));
+            }
+        });
+    }
+
+    function updateGlobalScore() {
+        let totalRaw = 0;
+        for (let crit of criteriaList) {
+            totalRaw += scores[crit.id] || 0;
+        }
+        const totalMax = 120;
+        let adjustedTo100 = (totalRaw / totalMax) * 100;
+        let finalScore = adjustedTo100;
+        if (emotionPenaltyActive) {
+            finalScore = Math.max(0, finalScore - 10);
+        }
+        
+        let anyLow = false;
+        for (let crit of criteriaList) {
+            if ((scores[crit.id] || 0) <= 3) {
+                anyLow = true;
+                break;
+            }
+        }
+        const verifScore = scores.verification || 0;
+        const legalScore = scores.legal || 0;
+        const signauxScore = scores.signaux || 0;
+        const pillarsWeak = (verifScore < 7 || legalScore < 7 || signauxScore < 7);
+        
+        document.getElementById('totalScoreDisplay').innerText = `${totalRaw} / 120`;
+        document.getElementById('adjustedScoreDisplay').innerText = finalScore.toFixed(1);
+        const progressPercent = Math.min(100, Math.max(0, finalScore));
+        const progressBar = document.getElementById('scoreProgressBar');
+        progressBar.style.width = `${progressPercent}%`;
+        if (finalScore < 50) progressBar.style.backgroundColor = "#DC2626";
+        else if (finalScore < 70) progressBar.style.backgroundColor = "#F59E0B";
+        else if (finalScore < 85) progressBar.style.backgroundColor = "#3B82F6";
+        else progressBar.style.backgroundColor = "#10B981";
+        
+        const verdictZone = document.getElementById('verdictZone');
+        let verdictHtml = '';
+        if (anyLow) {
+            verdictHtml = `<span class="decision-badge bg-danger text-white">❌ DANGER (critique ≤3) → STOP</span>`;
+        } else if (finalScore < 50) {
+            verdictHtml = `<span class="decision-badge bg-danger text-white">🔴 DANGER → Refuser</span>`;
+        } else if (finalScore >= 50 && finalScore < 70) {
+            verdictHtml = `<span class="decision-badge bg-warning text-dark">⚠️ RISQUÉ → Corriger avant</span>`;
+        } else if (finalScore >= 70 && finalScore < 85) {
+            verdictHtml = `<span class="decision-badge bg-info text-dark">👍 ACCEPTABLE → Avec prudence</span>`;
+        } else {
+            verdictHtml = `<span class="decision-badge bg-success text-white">✅ SOLIDE → Tu peux avancer</span>`;
+        }
+        verdictZone.innerHTML = verdictHtml;
+        
+        const elimAlert = document.getElementById('eliminationAlert');
+        const criticalAlert = document.getElementById('criticalPillarAlert');
+        if (anyLow) elimAlert.classList.remove('d-none');
+        else elimAlert.classList.add('d-none');
+        if (pillarsWeak && !anyLow) criticalAlert.classList.remove('d-none');
+        else criticalAlert.classList.add('d-none');
+        
+        const existingNote = document.getElementById('emotionNote');
+        if (emotionPenaltyActive) {
+            if (!existingNote) {
+                const noteSpan = document.createElement('div');
+                noteSpan.id = 'emotionNote';
+                noteSpan.className = 'small text-danger mt-2';
+                noteSpan.innerHTML = '<i class="fas fa-heart-broken"></i> Pénalité émotion -10 points appliquée.';
+                verdictZone.appendChild(noteSpan);
+            } else {
+                existingNote.style.display = 'block';
+            }
+        } else if (existingNote) existingNote.style.display = 'none';
+    }
+
+    function resetScores() {
+        for (let crit of criteriaList) {
+            scores[crit.id] = 5;
+            const slider = document.getElementById(`slider-${crit.id}`);
+            const numberInput = document.getElementById(`score-${crit.id}`);
+            if (slider) slider.value = 5;
+            if (numberInput) numberInput.value = 5;
+        }
+        emotionPenaltyActive = false;
+        const checkbox = document.getElementById('emotionPenaltyCheckbox');
+        if (checkbox) checkbox.checked = false;
+        updateGlobalScore();
+    }
+
+    function bindEvents() {
+        const chk = document.getElementById('emotionPenaltyCheckbox');
+        if (chk) {
+            chk.addEventListener('change', (e) => {
+                emotionPenaltyActive = e.target.checked;
+                updateGlobalScore();
+            });
+        }
+        const resetBtn = document.getElementById('resetScoresBtn');
+        if (resetBtn) resetBtn.addEventListener('click', resetScores);
+    }
+
+    function init() {
+        buildAllTabs();
+        bindEvents();
+        updateGlobalScore();
+    }
+
+    init();
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
